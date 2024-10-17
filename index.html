@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tentang Perusahaan</title>
+    <title>Reservasi - Rental</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     <style>
         * {
@@ -14,7 +14,7 @@
         }
         body {
             height: 100vh;
-            background: url('background.jpg');
+            background: url('/company web/background.jpg');
             background-repeat: no-repeat;
             background-size: cover;
             background-position: center right;
@@ -72,16 +72,61 @@
             color: lightgray;
         }
         .content {
-            margin-top: 120px; 
-            text-align: center;
+            max-width: 500px;
+            text-align: left;
+            line-height: 1.6;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 120px;
+            overflow: auto;
             color: white;
+            height: calc(100vh 120px);
         }
-
+        .content form {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        .content form label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        .content form input,
+        .content form select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            background-color: #fff;
+            color: #333;
+        }
+        .content form button {
+            padding: 10px 20px;
+            font-size: 18px;
+            color: white;
+            background-color: #007bff; /* Warna tombol */
+            border: none;
+            border-radius: 5px;
+           cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .content form button:hover {
+           background-color: #0056b3; /* Warna tombol saat hover */
+        }
         @media (max-width: 768px) {
             .header {
                 padding: 10px 20px;
             }
             .navbar a {
+                font-size: 15px;
+                margin-left: 10px;
+            }
+            .auth a {
                 font-size: 15px;
                 margin-left: 10px;
             }
@@ -95,7 +140,7 @@
     <header class="header">
         <a href="#" class="logo">Rental*</a>
         <nav class="navbar">
-            <a href="https://fajar-im.github.io/Rental-Reservasi">Home</a>
+            <a href="/company web/index.html">Home</a>
             <a href="/company web/reservation/index.html">Reservation</a>
             <a href="/company web/contact/index.html">Contact</a>
             <a href="/company web/about/index.html">About</a>
@@ -107,8 +152,26 @@
     </header>
 
     <div class="content">
-        <h1>Selamat datang di Rental*</h1>
-        <p>Salah satu rental mobil terbaik yang pernah kamu temui </p>
+        <h1>Reservasi Mobil</h1>
+        <p>Silakan isi formulir di bawah ini untuk melakukan reservasi mobil.</p>
+        <form action="proses.html" method="post">
+            <label for="carType">Tipe Mobil:</label>
+            <select id="carType" name="carType" required>
+                <option value="">Pilih Tipe Mobil</option>
+                <option value="minibus">Mini Bus</option>
+                <option value="suv">SUV</option>
+                <option value="luxury">Mobil Mewah</option>
+                <option value="van">Mobil Van</option>
+            </select>
+
+            <label for="rentalDate">Tanggal Penyewaan:</label>
+            <input type="date" id="rentalDate" name="rentalDate" required>
+
+            <label for="rentalDuration">Durasi Penyewaan (hari):</label>
+            <input type="number" id="rentalDuration" name="rentalDuration" required>
+
+            <button type="submit">Kirim Reservasi</button>
+        </form>
     </div>
 </body>
 </html>
